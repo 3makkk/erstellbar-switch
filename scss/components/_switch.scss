@@ -1,0 +1,80 @@
+$lang-switch-color: #b5c6d0;
+$lang-switch-default-color: #fff;
+$lang-switch-border-size: 2px;
+$lang-switch-width: 94px;
+$lang-switch-height: 28px;
+
+
+@mixin switch {
+  .switch {
+    display: inline-block;
+    border: $lang-switch-border-size solid $lang-switch-color;
+    border-radius: ($lang-switch-height/2);
+    position: relative;
+    width: $lang-switch-width;
+    height: $lang-switch-height;
+    font-weight: bold;
+    float: right;
+
+    .text {
+      @include clearfix;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    a {
+      text-align: center;
+      width: ($lang-switch-width/2) - $lang-switch-border-size;
+      display: block;
+      float: left;
+      font-size: 14px;
+      text-transform: uppercase;
+      line-height: $lang-switch-height - (2*$lang-switch-border-size);
+      transition: .3s;
+
+      &.is-active {
+        color: $lang-switch-default-color;
+      }
+
+      &.not-active {
+        color: $lang-switch-color;
+      }
+    }
+
+    .pill {
+      position: absolute;
+      left: -1px; // fix render problem
+      top: 0;
+      display: block;
+      content: '';
+      background-color: $lang-switch-color;
+      border-radius: ($lang-switch-height/2);
+      height: 100%;
+      width: ($lang-switch-width/2) - $lang-switch-border-size + 1;
+      transition: .3s;
+      z-index: 1;
+    }
+
+    // When Switch is active e.g. right
+    &.is-active {
+      .pill {
+        left: ($lang-switch-width/2) - $lang-switch-border-size;
+      }
+    }
+
+    // If site reload
+    &.is-loading {
+
+      // Show active as inactive before page reload
+      a.is-active {
+        color: $lang-switch-color
+      }
+      // Show inactive as active before page reload
+      a.not-active {
+        color: $lang-switch-default-color;
+      }
+    }
+  }
+}

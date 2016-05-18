@@ -1,0 +1,24 @@
+{
+  "name": "erstellbar-switch",
+  "authors": [
+    "Sven Friedemann <sven@erstellbar.de>"
+  ],
+  "description": "Beautiful language switch",
+  "main": "",
+  "keywords": [
+    "switch",
+    "scss",
+    "js"
+  ],
+  "license": "MIT",
+  "homepage": "https://erstellbar.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/components",
+    "test",
+    "tests"
+  ]
+}
