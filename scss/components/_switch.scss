@@ -1,11 +1,4 @@
-$lang-switch-color: #b5c6d0;
-$lang-switch-default-color: #fff;
-$lang-switch-border-size: 2px;
-$lang-switch-width: 94px;
-$lang-switch-height: 28px;
-
-
-@mixin switch {
+@mixin erstellbar-switch {
   .switch {
     display: inline-block;
     border: $lang-switch-border-size solid $lang-switch-color;

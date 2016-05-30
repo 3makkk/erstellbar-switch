@@ -1,9 +1,1 @@
-$lang-switch-color: #b5c6d0;
-$lang-switch-default-color: #fff;
-$lang-switch-border-size: 2px;
-$lang-switch-width: 92px;
-$lang-switch-height: 28px;
-
 @import "components/switch";
-
-@include switch();
