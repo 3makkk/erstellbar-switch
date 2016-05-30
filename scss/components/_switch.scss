@@ -1,73 +1,90 @@
-@mixin erstellbar-switch {
-  .switch {
-    display: inline-block;
-    border: $lang-switch-border-size solid $lang-switch-color;
-    border-radius: ($lang-switch-height/2);
-    position: relative;
-    width: $lang-switch-width;
-    height: $lang-switch-height;
-    font-weight: bold;
-    float: right;
+$lang-switch-color: #b5c6d0 !default;
+$lang-switch-default-color: #fff !default;
+$lang-switch-border-size: 2px !default;
+$lang-switch-width: 94px !default;
+$lang-switch-height: 28px !default;
 
-    .text {
-      @include clearfix;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-    }
+@mixin erstellbar-switch-base (
+  $lang-switch-color: $lang-switch-color,
+  $lang-switch-default-color: $lang-switch-default-color,
+  $lang-switch-border-size: $lang-switch-border-size,
+  $lang-switch-width: $lang-switch-width,
+  $lang-switch-height: $lang-switch-height
+) {
 
-    a {
-      text-align: center;
-      width: ($lang-switch-width/2) - $lang-switch-border-size;
-      display: block;
-      float: left;
-      font-size: 14px;
-      text-transform: uppercase;
-      line-height: $lang-switch-height - (2*$lang-switch-border-size);
-      transition: .3s;
+  display: inline-block;
+  border: $lang-switch-border-size solid $lang-switch-color;
+  border-radius: ($lang-switch-height/2);
+  position: relative;
+  width: $lang-switch-width;
+  height: $lang-switch-height;
+  font-weight: bold;
+  float: right;
 
-      &.is-active {
-        color: $lang-switch-default-color;
-      }
+  .text {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 
-      &.not-active {
-        color: $lang-switch-color;
-      }
-    }
+  a {
+    text-align: center;
+    width: ($lang-switch-width/2) - $lang-switch-border-size;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: $lang-switch-height - (2*$lang-switch-border-size);
+    transition: .3s;
+    text-decoration: none;
 
-    .pill {
-      position: absolute;
-      left: -1px; // fix render problem
-      top: 0;
-      display: block;
-      content: '';
-      background-color: $lang-switch-color;
-      border-radius: ($lang-switch-height/2);
-      height: 100%;
-      width: ($lang-switch-width/2) - $lang-switch-border-size + 1;
-      transition: .3s;
-      z-index: 1;
-    }
-
-    // When Switch is active e.g. right
     &.is-active {
-      .pill {
-        left: ($lang-switch-width/2) - $lang-switch-border-size;
-      }
+      color: $lang-switch-default-color;
     }
 
-    // If site reload
-    &.is-loading {
-
-      // Show active as inactive before page reload
-      a.is-active {
-        color: $lang-switch-color
-      }
-      // Show inactive as active before page reload
-      a.not-active {
-        color: $lang-switch-default-color;
-      }
+    &.not-active {
+      color: $lang-switch-color;
     }
+  }
+
+  .pill {
+    position: absolute;
+    left: -1px; // fix render problem
+    top: 0;
+    display: block;
+    content: '';
+    background-color: $lang-switch-color;
+    border-radius: ($lang-switch-height/2);
+    height: 100%;
+    width: ($lang-switch-width/2) - $lang-switch-border-size + 1;
+    transition: .3s;
+    z-index: 1;
+  }
+
+  // When Switch is active e.g. right
+  &.is-active {
+    .pill {
+      left: ($lang-switch-width/2) - $lang-switch-border-size;
+    }
+  }
+
+  // If site reload
+  &.is-loading {
+
+    // Show active as inactive before page reload
+    a.is-active {
+      color: $lang-switch-color
+    }
+    // Show inactive as active before page reload
+    a.not-active {
+      color: $lang-switch-default-color;
+    }
+  }
+}
+
+@mixin erstellbar-switch() {
+  .switch {
+    @include erstellbar-switch-base()
   }
 }

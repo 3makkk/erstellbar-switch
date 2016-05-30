@@ -8,5 +8,9 @@ by Sven Friedemann
 Installation
 ------------
 
-Add ```scss/switch.scss``` and ```js/switch.js``` to your Project.
+Add ```dist/css/erstellbar-switch.css``` and ```dist/js/erstellbar-switch.js``` to your Project.
+
+
+
+
 
